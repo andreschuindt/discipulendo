@@ -1,0 +1,5 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "node scripts/generate-landing.mjs && node scripts/update-offer.mjs && npx next build",
+  "installCommand": "npm install"
+}
