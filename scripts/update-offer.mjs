@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync } from "node:fs";
 const file = "public/landing.html";
-const checkout = "https://payfast.greenn.com.br/75450/offer/JCF2ZL";
+const checkout = "https://payfast.greenn.com.br/52999/offer/k4Cdeb";
 let html = readFileSync(file, "utf8");
 const offer = [
 '<section class="pricing pricing-nova" id="inscricao">',
