@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import type { ReactNode } from "react";
 
-const checkout = "https://payfast.greenn.com.br/75450/offer/JCF2ZL";
+const checkout = "https://payfast.greenn.com.br/52999/offer/k4Cdeb";
 const css = [
 "#inscricao.nova-oferta{padding:68px 20px 80px;color:#f6e9d5;background:linear-gradient(150deg,#361741,#200b2d);}",
 "#inscricao .oferta-inner{max-width:790px;margin:auto}",
