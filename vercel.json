@@ -1,5 +1,5 @@
 {
   "framework": "nextjs",
-  "buildCommand": "node scripts/generate-landing.mjs && node scripts/update-offer.mjs && node scripts/generate-favicon.mjs && node scripts/update-og.mjs && node scripts/rename-alma-to-inspira.mjs && node scripts/highlight-inspira-vitrine.mjs && npx next build",
+  "buildCommand": "node scripts/generate-landing.mjs && node scripts/update-offer.mjs && node scripts/generate-favicon.mjs && node scripts/update-og.mjs && node scripts/rename-alma-to-inspira.mjs && node scripts/highlight-inspira-vitrine.mjs && node scripts/add-99mais1-sponsorship.mjs && npx next build",
   "installCommand": "npm install"
 }
