@@ -97,10 +97,7 @@ const footer = /<footer\s+id="contato">/;
 if(!footer.test(html)) throw new Error("Não encontrei o rodapé oficial. Sem alterações.");
 if(!html.includes('<section class="pricing pricing-nova" id="inscricao">')) throw new Error("Não encontrei a oferta mensal. Sem alterações.");
 if(!html.includes("</head>")) throw new Error("Head não encontrado.");
-html = html.replace(footer, section+"const pricing = /<section\s+class="pricing pricing-nova"\s+id="inscricao">/;
-if(!pricing.test(html)) throw new Error("Não encontrei a seção de inscrição. Sem alterações.");
-if(!html.includes("</head>")) throw new Error("Head não encontrado.");
-html = html.replace(pricing, section+"$&");");
+html = html.replace(footer, () => section + '<footer id="contato">');
 html = html.replace("</head>",css+"</head>");
 
 for(const check of ['id="patrocine-99mais1"',sponsorUrl,detailsUrl,'id="s99-styles"','id="inscricao"','Quero ser patrocinador(a)']){
