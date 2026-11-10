@@ -2,7 +2,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 
 const path = "public/landing.html";
 const title = "DISCIPULENDO - Para quem ama Jesus, ler e aprender.";
-const image = "https://discipulendo.vercel.app/discipulendo-og-fundadores-1080.jpg?v=20261109";
+const image = "https://discipulendo.vercel.app/discipulendo-og-fundadores-por-mes-1080.jpg?v=20261110";
 let content = readFileSync(path, "utf8");
 
 const titleTag = /<title[^>]*>[\s\S]*?<\/title>/i;
@@ -21,7 +21,7 @@ for (const [attr,key,value] of [
  ["property","og:image:type","image/jpeg"],
  ["property","og:image:width","1080"],
  ["property","og:image:height","1080"],
- ["property","og:image:alt","DISCIPULENDO — para 100 membros fundadores: de R$ 47,00 por R$ 37,00"],
+ ["property","og:image:alt","DISCIPULENDO — para 100 membros fundadores: de R$ 47,00 por R$ 37,00 por mês"],
  ["name","twitter:title",title],
  ["name","twitter:image",image]
 ]) replaceMeta(attr,key,value);
