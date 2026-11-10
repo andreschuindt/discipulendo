@@ -7,7 +7,7 @@ const offer = [
 '<div class="pricing-copy"><p class="section-kicker">A decisão é sua. O convite também.</p><h2>Daqui a alguns meses, você pode agradecer por ter dado <em>o primeiro passo hoje.</em></h2><p>Por cerca de R$ 1,23 ao dia, comece uma jornada para compreender a Palavra, criar raízes e refletir Cristo no cotidiano.</p><div class="pricing-quote">“Você não está comprando mais informação. Está escolhendo formação.”</div></div>',
 '<div class="price-card"><div class="price-labels"><span>CONDIÇÃO EXCLUSIVA</span><span>SEM FIDELIZAÇÃO</span></div>',
 '<div class="coupon-highlight"><small>Um cupom exclusivo para você.</small><strong>SOMOSDISCIPULOS</strong><span>Juntos somos discípulos de Jesus Cristo.</span></div>',
-'<div class="nova-promocao"><div class="preco-de">De <del>R$ 47,00</del> para</div><div class="preco-por">R$ 37,00</div><div class="cupom-aplicado">com esse cupom acima aplicado.</div></div>',
+'<div class="nova-promocao"><div class="preco-de">De <del>R$ 47,00</del> para</div><div class="preco-por"><span class="preco-valor">R$ 37,00</span><span class="preco-periodo">POR MÊS</span></div><div class="cupom-aplicado">com esse cupom acima aplicado.</div></div>',
 '<ul class="novos-beneficios"><li>Acesso imediato às aulas já gravadas</li><li>Duas novas aulas guiadas por mês</li><li>Materiais práticos e comunidade exclusiva</li><li>Acesso à Plataforma Alma Cuidada</li></ul>',
 '<a class="button button-primary price-button" data-track="checkout_pricing" href="'+checkout+'" target="_blank" rel="noopener noreferrer">Quero começar minha jornada <span aria-hidden="true">→</span></a>',
 '<p class="coupon-reminder"><strong>COMPRA SEGURA • CUPOM JÁ INCLUSO</strong><span>Você será direcionado ao checkout oficial.</span></p></div></section>'
@@ -31,7 +31,9 @@ const styles = [
 '#inscricao.pricing-nova .nova-promocao{background:linear-gradient(140deg,#4b2a55,#3c1c49);border-radius:20px;text-align:center;margin:22px 0 27px;padding:24px 13px 22px}',
 '#inscricao.pricing-nova .preco-de{font:400 clamp(21px,4vw,30px)/1.2 Georgia,serif;color:#f3e5e6}',
 '#inscricao.pricing-nova .preco-de del{text-decoration-color:#e7a0ad;text-decoration-thickness:2px}',
-'#inscricao.pricing-nova .preco-por{font:700 clamp(58px,8vw,79px)/1.17 Georgia,serif;letter-spacing:-.045em;color:#ffe6a6;margin:6px 0 16px;white-space:nowrap}',
+'#inscricao.pricing-nova .preco-por{font:700 clamp(34px,6vw,70px)/1.17 Georgia,serif;letter-spacing:-.045em;color:#ffe6a6;margin:6px 0 16px;white-space:nowrap;display:flex;align-items:center;justify-content:center;gap:clamp(6px,1.4vw,12px)}',
+'#inscricao.pricing-nova .preco-por .preco-valor{display:inline-block;min-width:0}',
+'#inscricao.pricing-nova .preco-por .preco-periodo{display:inline-block;flex:0 0 auto;border:1px solid rgba(245,214,146,.65);background:linear-gradient(135deg,rgba(241,193,103,.15),rgba(89,47,96,.35));border-radius:99px;padding:6px 10px;color:#ffe3a3;font:800 11px/1.2 Arial,sans-serif;letter-spacing:.045em;box-shadow:0 0 14px rgba(236,183,90,.12)}',
 '#inscricao.pricing-nova .cupom-aplicado{display:inline-block;max-width:100%;box-sizing:border-box;background:linear-gradient(105deg,#f8df9e,#d5a54e);color:#2c1136;font-family:Georgia,serif;font-size:clamp(13px,2.5vw,16px);font-weight:700;padding:11px 17px;border-radius:50px}',
 '#inscricao.pricing-nova .novos-beneficios{list-style:none;padding:0;margin:20px 0 32px}',
 '#inscricao.pricing-nova .novos-beneficios li{display:flex;align-items:baseline;gap:13px;color:#f9eeda;font-size:15px;line-height:1.5;margin:17px 0}',
@@ -40,7 +42,8 @@ const styles = [
 '#inscricao.pricing-nova .coupon-reminder{text-align:center;margin-top:18px}',
 '#inscricao.pricing-nova .coupon-reminder strong{display:block;font-size:11px;letter-spacing:.04em;color:#f7da99}',
 '#inscricao.pricing-nova .coupon-reminder span{display:block;font:italic 13px/1.45 Georgia,serif;color:#e3cee1;margin-top:5px}',
-'@media(max-width:600px){#inscricao.pricing-nova .price-card{padding:21px 16px}#inscricao.pricing-nova .coupon-highlight strong{font-size:clamp(22px,6vw,30px)}#inscricao.pricing-nova .preco-por{font-size:clamp(52px,13vw,72px)}#inscricao.pricing-nova .novos-beneficios li{font-size:14px}}',
+'@media(max-width:600px){#inscricao.pricing-nova .price-card{padding:21px 16px}#inscricao.pricing-nova .coupon-highlight strong{font-size:clamp(22px,6vw,30px)}#inscricao.pricing-nova .preco-por{font-size:clamp(32px,9vw,52px);gap:7px}#inscricao.pricing-nova .preco-periodo{font-size:10px;padding:5px 8px}#inscricao.pricing-nova .novos-beneficios li{font-size:14px}}',
+'@media(max-width:360px){#inscricao.pricing-nova .preco-por{font-size:clamp(29px,9vw,35px);gap:6px}#inscricao.pricing-nova .preco-periodo{font-size:9px;padding:5px 6px}}',
 '</style>'
 ].join("");
 if(!html.includes('id="discipulendo-oferta-revisada"'))html=html.replace("</head>",styles+"</head>");
