@@ -41,9 +41,11 @@ a.inspira-vitrine-cta span[aria-hidden] {
 
 const landingPath = "public/landing.html";
 let html = readFileSync(landingPath, "utf8");
-const anchorPattern = /<a\b[^>]*class="[^"]*alma-benefit-button-primary[^"]*"[^>]*>[\s\S]*?Conheça a plataforma do Projeto Inspira[\s\S]*?<\/a>/i;
-if (!anchorPattern.test(html)) throw new Error("Botão de acesso ao Projeto Inspira não encontrado na landing.");
-html = html.replace(anchorPattern, (anchor) => {
+const anchorPattern = /<a\b[^>]*>[\s\S]*?<\/a>/gi;
+const specificAnchor = Array.from(html.matchAll(anchorPattern), m => m[0])
+  .find(a => a.includes("alma-benefit-button-primary") && a.includes(ctaText));
+if (!specificAnchor) throw new Error("Botão de acesso ao Projeto Inspira não encontrado na landing.");
+html = html.replace(specificAnchor, (anchor) => {
   const prev = /href="([^"]+)"/.exec(anchor);
   if (!prev || (prev[1]!==oldDestination && prev[1]!==destination)) {
     throw new Error("Destino atual do botão é inesperado: "+(prev?.[1]??"sem href"));
