@@ -2,7 +2,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 
 const file = "public/landing.html";
 const url = "https://99mais1.vercel.app/";
-const sponsorUrl = url + "#inscricao";
+const sponsorUrl = "#inscricao";
 const detailsUrl = url;
 let html = readFileSync(file, "utf8");
 
@@ -21,13 +21,13 @@ const section = [
 '      </div>',
 '      <div class="s99-commitment">',
 '        <span class="s99-commitment-icon" aria-hidden="true">✦</span>',
-'        <p><strong>Um compromisso que pode continuar mês após mês.</strong> Seu patrocínio recorrente pode ajudar a sustentar facilitação, materiais, tecnologia e a expansão do cuidado para quem serve longe de casa.</p>',
+'        <p><strong>Um compromisso que pode continuar mês após mês.</strong> Apoios recorrentes ao 99 + 1 podem sustentar facilitação, materiais, tecnologia e a expansão do cuidado. Abaixo, conheça também a assinatura mensal do DISCIPULENDO.</p>',
 '      </div>',
 '      <div class="s99-actions">',
-'        <a class="s99-primary" href="' + sponsorUrl + '" target="_blank" rel="noopener noreferrer" aria-label="Manifestar interesse em patrocinar o Projeto 99 + 1 em nova aba"><span aria-hidden="true">♡</span> Quero ser patrocinador(a) <span class="s99-arrow" aria-hidden="true">↗</span></a>',
+'        <a class="s99-primary" href="' + sponsorUrl + '" aria-label="Ir à oferta de assinatura mensal DISCIPULENDO logo abaixo"><span aria-hidden="true">♡</span> Quero ser patrocinador(a) <span class="s99-arrow" aria-hidden="true">↓</span></a>',
 '        <a class="s99-secondary" href="' + detailsUrl + '" target="_blank" rel="noopener noreferrer">Conheça o PROJETO 99 + 1 <span aria-hidden="true">→</span></a>',
 '      </div>',
-'      <p class="s99-note">Apoio voluntário e independente da assinatura DISCIPULENDO. O formulário registra o interesse em patrocinar; não realiza cobrança. O apoio não dá acesso a dados ou relatos pessoais dos missionários.</p>',
+'      <p class="s99-note">Ao continuar para a oferta abaixo, você encontrará a assinatura mensal do DISCIPULENDO (R$ 37,00/mês), processada pela Greenn — não uma doação automaticamente destinada ao 99 + 1. Para patrocínio direto ao projeto, consulte o site oficial. O apoio não dá acesso a dados ou relatos pessoais dos missionários.</p>',
 '    </div>',
 '    <aside class="s99-art" aria-label="Simbolismo do Projeto 99 + 1: ninguém fica para trás">',
 '      <div class="s99-halo">',
