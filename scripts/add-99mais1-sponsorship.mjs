@@ -21,13 +21,13 @@ const section = [
 '      </div>',
 '      <div class="s99-commitment">',
 '        <span class="s99-commitment-icon" aria-hidden="true">✦</span>',
-'        <p><strong>Um compromisso que pode continuar mês após mês.</strong> Apoios recorrentes ao 99 + 1 podem sustentar facilitação, materiais, tecnologia e a expansão do cuidado. Abaixo, conheça também a assinatura mensal do DISCIPULENDO.</p>',
+'        <p><strong>Um compromisso que pode continuar mês após mês.</strong> Apoios recorrentes ao 99 + 1 podem sustentar facilitação, materiais, tecnologia e a expansão do cuidado. Na seção acima, conheça também a assinatura mensal do DISCIPULENDO.</p>',
 '      </div>',
 '      <div class="s99-actions">',
-'        <a class="s99-primary" href="' + sponsorUrl + '" aria-label="Ir à oferta de assinatura mensal DISCIPULENDO logo abaixo"><span aria-hidden="true">♡</span> Quero ser patrocinador(a) <span class="s99-arrow" aria-hidden="true">↓</span></a>',
+'        <a class="s99-primary" href="' + sponsorUrl + '" aria-label="Ir à oferta de assinatura mensal DISCIPULENDO na seção acima"><span aria-hidden="true">♡</span> Quero ser patrocinador(a) <span class="s99-arrow" aria-hidden="true">↑</span></a>',
 '        <a class="s99-secondary" href="' + detailsUrl + '" target="_blank" rel="noopener noreferrer">Conheça o PROJETO 99 + 1 <span aria-hidden="true">→</span></a>',
 '      </div>',
-'      <p class="s99-note">Ao continuar para a oferta abaixo, você encontrará a assinatura mensal do DISCIPULENDO (R$ 37,00/mês), processada pela Greenn — não uma doação automaticamente destinada ao 99 + 1. Para patrocínio direto ao projeto, consulte o site oficial. O apoio não dá acesso a dados ou relatos pessoais dos missionários.</p>',
+'      <p class="s99-note">Ao acessar a oferta acima, você encontrará a assinatura mensal do DISCIPULENDO (R$ 37,00/mês), processada pela Greenn — não uma doação automaticamente destinada ao 99 + 1. Para patrocínio direto ao projeto, consulte o site oficial. O apoio não dá acesso a dados ou relatos pessoais dos missionários.</p>',
 '    </div>',
 '    <aside class="s99-art" aria-label="Simbolismo do Projeto 99 + 1: ninguém fica para trás">',
 '      <div class="s99-halo">',
@@ -93,14 +93,21 @@ const css = [
 if(html.includes('id="patrocine-99mais1"') || html.includes('id="s99-styles"')){
   throw new Error("A seção 99+1 já existe. Revisar antes de inserir uma duplicata.");
 }
-const pricing = /<section\s+class="pricing pricing-nova"\s+id="inscricao">/;
+const footer = /<footer\s+id="contato">/;
+if(!footer.test(html)) throw new Error("Não encontrei o rodapé oficial. Sem alterações.");
+if(!html.includes('<section class="pricing pricing-nova" id="inscricao">')) throw new Error("Não encontrei a oferta mensal. Sem alterações.");
+if(!html.includes("</head>")) throw new Error("Head não encontrado.");
+html = html.replace(footer, section+"const pricing = /<section\s+class="pricing pricing-nova"\s+id="inscricao">/;
 if(!pricing.test(html)) throw new Error("Não encontrei a seção de inscrição. Sem alterações.");
 if(!html.includes("</head>")) throw new Error("Head não encontrado.");
-html = html.replace(pricing, section+"$&");
+html = html.replace(pricing, section+"$&");");
 html = html.replace("</head>",css+"</head>");
 
 for(const check of ['id="patrocine-99mais1"',sponsorUrl,detailsUrl,'id="s99-styles"','id="inscricao"','Quero ser patrocinador(a)']){
  if(!html.includes(check))throw new Error("Falta conteúdo requerido: "+check);
 }
+if(html.indexOf('id="inscricao"') >= html.indexOf('id="patrocine-99mais1"')) throw new Error("A oferta deve ficar acima do bloco 99 + 1.");
+if(html.indexOf('id="patrocine-99mais1"') >= html.indexOf('<footer id="contato">')) throw new Error("O bloco 99 + 1 deve ficar antes do rodapé.");
+if(!html.includes('href="#inscricao"'))throw new Error("A navegação para o checkout não foi preservada.");
 writeFileSync(file,html);
-console.log("Seção PROJETO 99 + 1 instalada antes da oferta de R$ 37,00; CTAs direcionam ao site oficial do projeto.");
+console.log("Seção PROJETO 99 + 1 posicionada imediatamente antes do rodapé; botões e âncoras preservados.");
