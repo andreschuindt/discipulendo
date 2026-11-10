@@ -3,7 +3,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 const file = "public/landing.html";
 const url = "https://99mais1.vercel.app/";
 const sponsorUrl = url + "#inscricao";
-const detailsUrl = url + "#projeto";
+const detailsUrl = url;
 let html = readFileSync(file, "utf8");
 
 const section = [
